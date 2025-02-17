@@ -16,9 +16,11 @@ class LoginRequest(BaseModel):
 
 class UserUpdate(BaseModel):
     name: Optional[str] = None
+    username: Optional[str] = None
     email: Optional[EmailStr] = None
-    phone: Optional[str] = None
-    address: Optional[str] = None
+    phone_number: Optional[str] = None
+    shop_address: Optional[str] = None
+    shopname: Optional[str] = None
     
     class Config:
         orm_mode = True
