@@ -40,9 +40,9 @@ from app.utils.security import get_current_user
 #     return {"msg": "Invoice created successfully", "invoice_id": new_invoice.id, "total_amount": total_amount}
 
 
-router = APIRouter()
+invoice_router = APIRouter()
 
-@router.post("/create", response_model=InvoiceResponse)
+@invoice_router.post("/create", response_model=InvoiceResponse)
 async def create_invoice(
     invoice: InvoiceCreate,
     db: Session = Depends(get_db)
