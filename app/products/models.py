@@ -20,7 +20,7 @@ class Category(Base):#changed
     __tablename__ = "categories"
 
     id = Column(Integer, primary_key=True, index=True)
-    name = Column(String, nullable=False)
+    name = Column(String(255), nullable=False)
     user_id = Column(Integer, ForeignKey("users.id", ondelete="CASCADE"), nullable=False)
 
     user = relationship("User", back_populates="categories")
@@ -47,7 +47,7 @@ class Product(Base):
     __tablename__ = "products"
     
     id = Column(Integer, primary_key=True, index=True)
-    name = Column(String, index=True, nullable=False)
+    name = Column(String(255), index=True, nullable=False)
     price = Column(Float, nullable=False)
     cost_price = Column(Float)  # Add this new field
     quantity = Column(Integer, nullable=False)

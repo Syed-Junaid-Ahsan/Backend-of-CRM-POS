@@ -8,11 +8,11 @@ class Invoice(Base):
     __tablename__ = "invoices"
 
     id = Column(Integer, primary_key=True, index=True)
-    invoice_number = Column(String, unique=True)
+    invoice_number = Column(String(255), unique=True)
     customer_id = Column(Integer, ForeignKey("customers.id"))
     total_amount = Column(Float)
-    payment_method = Column(String)
-    status = Column(String, default="PAID")
+    payment_method = Column(String(255))
+    status = Column(String(255), default="PAID")
     created_at = Column(DateTime(timezone=True), server_default=func.now())
 
     # Relationship to invoice items
@@ -23,7 +23,7 @@ class InvoiceItem(Base):
 
     id = Column(Integer, primary_key=True, index=True)
     invoice_id = Column(Integer, ForeignKey("invoices.id"))
-    product_name = Column(String)
+    product_name = Column(String(255))
     quantity = Column(Integer)
     unit_price = Column(Float)
     total_price = Column(Float)
